@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
 	def create
 		#complete this method
+		
 	end
 
 	def destroy
