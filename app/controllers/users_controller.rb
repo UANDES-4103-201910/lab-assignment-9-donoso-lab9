@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :is_user_logged_in?
 
   # GET /users
   # GET /users.json
@@ -26,14 +25,14 @@ class UsersController < ApplicationController
   def create
     respond_to do |format|
       if @user.save
-        format.html {redirect_to @user, notice: 'User was created'}
-        format.json {render json: @users.errors, status: :unprocessable_entity}
+        format.html { redirect_to @user, notice: 'User was created'}
+        format.json { render :json }
       else
-			    format.html {render :new}
-			    format.json {render json: @user.errors, status: :unprocessable_entity}
+        format.html {render :new }
+        format.json {render json: @user.errors, status: :unprocessable_entity}
       end
-      end 
-	end	
+    end
+  end
 
 
   # PATCH/PUT /users/1
@@ -56,7 +55,7 @@ class UsersController < ApplicationController
     @user.destroy
 	  respond_to do |format|
 		  format.html { redirect_to users_url, notice: 'User destroyed'}
-		  format.json { head :no_content}
+		  format.json { head :json }
     end
   end
 

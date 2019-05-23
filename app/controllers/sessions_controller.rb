@@ -17,12 +17,11 @@ class SessionsController < ApplicationController
 			flash[:error] = "Invalid credentials"
 			redirect_to root_url
 		end
-		
 	end
 
 	def destroy
 		@current_user = session[:current_user_id] = nil
-		#session["warden.user.user.key"][0][0] = 0
+		session["warden.user.user.key"][0][0] = 0
 		redirect_to root_url
 	end
 
